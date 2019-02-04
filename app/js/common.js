@@ -116,6 +116,34 @@ $(function () {
 		$(this).parent().children('.product-item__img').slideToggle(300)
 	})
 
+
+	$('#get-1').on('click', function(){
+		$(this).hide()
+		$('.modal').show()
+	})
+
+	$('.close-button').on('click', function(){
+		$('.modal').hide()
+		$('#get-1').show()
+	})
+
+	$('.hamburger-button').on('click', function(){
+		$('.menu').slideToggle()
+		if ( $(this).hasClass('active') ) {
+			$(this).html('<i class="far fa-bars">');
+			$(this).removeClass('active');
+			$(this).css('color', '#436276')
+		} else {
+			$(this).html('<i class="far fa-times"></i>');
+			$(this).addClass('active');
+			$(this).css('color', '#7cc15e')
+		}
+		
+		
+	})
+
+
+	
 });
 
 

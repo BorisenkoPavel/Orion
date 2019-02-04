@@ -17,6 +17,7 @@ body
 	font-family: $default-font
 	overflow-x: hidden
 	color: $text
+	
 	input, textarea
 		border: #666 1px solid
 		outline: none
@@ -24,6 +25,25 @@ body
 			border-color: red
 		&:required:valid
 			border-color: green
+
+h1	
+	font-size: 18px
+	text-transform: uppercase
+	font-family: $head-font
+	color: $text
+	padding-bottom: 20px
+	line-height: 1.4
+	font-weight: normal
+
+h2
+	font-size: 14px 
+	text-transform: uppercase
+
+.wrapper
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	min-height: 100vh
 
 .img-responsive
 	display: block
@@ -123,6 +143,86 @@ header
 		color: $blue
 		i
 			font-weight: 400
+
+.menu 
+	color: $blue
+	position: absolute
+	left: 0
+	top: 80px
+	background-color: #fff
+	z-index: 300
+	right: 0
+	max-width: 768px
+	margin: auto
+	padding: 20px
+	border-top: 5px solid $accent
+	display: none
+	li
+		line-height: 30px
+	&:before
+		content: ''
+		position: absolute
+		top: -20px
+		left: 10px
+		border: 10px solid transparent
+		border-bottom: 10px solid $accent
+	li
+		list-style: none
+	& > li
+		position: relative
+		a
+			font-size: 18px
+	a
+		font-weight: 900
+	.submenu
+		& > li
+			list-style-type: disc
+		a
+			font-size: 14px
+			text-transform: uppercase
+	.submenu2
+		padding: 0 
+		& > li
+		a
+			text-transform: none
+			font-weight: normal
+	.services-menu 
+		.submenu
+			margin-left: 20px
+			position: relative
+			li 
+				list-style-type: none
+			a
+				text-transform: none
+
+		li:before
+			content: ''
+			position: absolute
+			background-image: url(../img/sprite-menu.png)
+			background-repeat: no-repeat
+			background-position: 1px 5px
+			left: 0
+			width: 35px
+			height: 30px
+		li:nth-child(2):before
+			background-position: 1px -28px
+		li:nth-child(3):before
+			background-position: 1px -62px
+		li:nth-child(4):before
+			background-position: 1px -97px
+		li:nth-child(5):before
+			background-position: 1px -130px
+		li:nth-child(6):before
+			background-position: 1px -165px
+		li:nth-child(7):before
+			background-position: 1px -205px
+		li:nth-child(8):before
+			background-position: 1px -235px
+		li:nth-child(9):before
+			background-position: 1px -270px
+		li:nth-child(10):before
+			background-position: 1px -300px
+
 .phones
 	display: flex
 	flex-direction: column 
@@ -130,8 +230,12 @@ header
 	background-color: $accent
 	border-radius: 3px
 	padding: 8px 15px
-	line-height: 1.3
-	color: #fff
+	a
+		line-height: 1.3
+		color: #fff
+
+main 
+	flex: 1 1 100%
 
 .consultation 
 	background: #fff
@@ -494,7 +598,6 @@ header
 	outline: none
 
 .parameters
-	width: 350px
 	margin: auto
 	.parameter-item
 		display: flex
@@ -560,7 +663,7 @@ header
 			border: none
 			height: 50px
 			width: 85%
-			max-width: 300px
+			max-width: 250px
 			min-width: 100px
 			font-size: 30px
 			text-align: justify
@@ -574,14 +677,58 @@ header
 				color:#e27d65
 			&:-ms-input-placeholder      
 				color:#e27d65
-	.button.form_main-btn
-		width: 70%
-		background-color: $accent
-		display: block
-		margin: 20px auto 0
-		cursor: pointer
-	.modal
-		
+.button.form_main-btn
+	background-color: $accent
+	width: 250px
+	display: block
+	margin: 20px auto 0
+	cursor: pointer
+	text-align: center
+
+
+.modal
+	position: relative
+	bottom: 0
+	background-color: #fff
+	left: -10px
+	width: calc(100% + 20px)
+	display: none
+	margin-top: 20px
+	.modal-form
+		display: flex
+		flex-direction: column
+		padding: 10px
+		position: relative
+		p 
+			font-style: italic
+	&__head
+		font-family: FranklinGothicDemiCond
+		color: #fff
+		background-color: $blue
+		font-size: 20px
+		padding: 20px 20px
+		text-align: center
+		position: relative
+		.close-button
+			background-color: $accent
+			position: absolute
+			font-family: 'Font Awesome 5 pro'
+			width: 20px
+			height: 20px
+			right: 10px
+			top: 10px
+			line-height: 20px
+			text-align: center
+			cursor: pointer
+	input
+		width: 100%
+		border: 1px solid #c6d0d6
+		border-radius: 3px
+		margin-bottom: 10px
+		height: 40px
+		padding: 0 20px
+		font-style: italic
+
 
 .objects
 	max-width: 776px
@@ -637,6 +784,8 @@ header
 			margin-bottom: 10px
 		&__head
 			display: flex
+			&:hover
+				text-decoration: none
 		&__img
 			display: inline-block
 			flex: 0 0 40%
@@ -687,4 +836,165 @@ footer
 		background-color: #001B2A
 		padding: 10px 0
 
+
+
+.crumbs
+	margin-top: 10px
+	ul
+		margin: 0
+		padding: 0
+		display: flex
+		li 
+			list-style: none
+			&:after
+				content: ' /'
+				color: #868787
+			&:last-child:after
+				content: ''
+			a 
+				font-style: italic
+				color: #868787
+				&:hover
+					color: $accent
+					text-decoration: none
+		li.active
+			a	
+				border-bottom: 1px solid $accent
+				color: $accent
+	
+.secondary
+	section
+		padding: 0
+	.title
+		text-align: left
+		padding: 10px 0 
+	.title-block
+		text-align: left
+		padding: 10px 0
+		text-transform: none
+		font-size: 20px
+	.object-item
+		display: block
+		margin-bottom: 10px
+	img
+		width: 100%
+	p 
+		font-family: roboto	
+	.news-item-page
+		.news-item__date
+			border-bottom:  none
+			margin: 0
+		.news-item__text
+			background-color: #fff
+			color: $text
+			margin-top: 0
+			padding: 0 10px
+			img
+				margin: 10px 0
+table
+	width: 100%
+	th
+		background-color: #d9e0e4
+		color: $blue
+		padding: 10px
+	td:nth-child(2), td:last-child
+		color: $blue
+		font-family: $head-font
+		text-align: center
+	.price-col
+		text-align: center
+		background-color: #8ea1ad
+		color: #fff
+		min-width: 100px
+	tr 
+		border-bottom: 1px solid #8ea1ad
+	td:first-child
+		padding: 10px
+		
+.contacts_content 
+	margin-bottom: 30px
+	display: flex
+	flex-direction: column
+.contacts_content--contact
+	flex-basis: 55%
+.contacts_content--contact a
+	font-size: 16px
+	color: #7cc15e
+	text-decoration: underline 
+.contacts_content--head 
+	font-size: 20px
+	font-family: 'franklin', sans-serif
+	margin-bottom: 0
+	color: #7cc15e 
+.contacts_content--text 
+	margin-bottom: 30px 
+.contacts_content--phone 
+	font-size: 20px
+	font-family: 'franklin', sans-serif
+	color: #436276
+	margin-bottom: 0 
+.contacts_content--phone_last
+	margin-bottom: 30px 
+.contacts_content--connection 
+	margin-top: -10px
+	flex-basis: 40%
+	background: url(/img/specific/contacts_bg.png) center/100% no-repeat 
+.contacts_content--connection .consultation 
+	background: transparent
+	box-shadow: none
+	padding: 20px 
+.contacts_content--connection .consultation_header 
+	margin-top: 10px
+	text-transform: uppercase 
+.contacts_content--connection .form_main-btn 
+	margin-bottom: 16px 
+.contacts_content--connection .form_container 
+	display: block 
+.contacts_content--connection .form_container textarea 
+	width: 100%
+	border-radius: 3px
+	background: #e5e5e5
+	border: 1px solid #c5cbcf
+	height: 130px
+	padding-left: 20px 
+
+.secondary
+	.consultation.feedback-form
+		.title
+			text-align: center
+			font-size: 24px
+			span
+				&:before
+					border-bottom:  none
+				
+.minerals-list, .auto-park-list
+	display: flex
+	flex-wrap: wrap
+	margin: 0 -10px
+	.minerals-item
+		flex: 0 0 50%
+		padding: 10px 2%
+		.mineral-img
+			width: 100%
+			overflow: hidden
+			img
+				width: 100%
+		.mineral-title
+			text-align: center
+			font-family: roboto
+.auto-park-list
+	.auto-park-item
+		display: block
+		flex: 0 0 50%
+		padding: 10px 2%
+	.auto-park-img
+			width: 100%
+			overflow: hidden
+			img
+				width: 100%
+	.auto-park-title
+		text-align: center
+		font-family: roboto
+		color: $accent
+		text-decoration: underline
 @import "media" // Always at the end
